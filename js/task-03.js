@@ -19,9 +19,14 @@ const images = [
   },
 ]
 
+const galerysEl = ({ url, alt }) => {
+  return `<li><img src="${url}" alt="${alt}" width=480 ></li>`;
+};
 
- for(let image of images)
- document.querySelector('#gallery')
- .insertAdjacentHTML('beforeEnd', `<li><img src="${image.url}" width = 320, higth= 320 alt="${image.alt}"></li>`);
+const makeImagesGalery = images.map(galerysEl).join('');
+console.log(makeImagesGalery);
 
+const idGalery = document.querySelector('#gallery');
+idGalery.insertAdjacentHTML('beforeend', makeImagesGalery);
+console.log(idGalery);
 
